@@ -1,0 +1,92 @@
+﻿@model CreditApprover.ViewModels.LoginViewModel
+
+<div>
+    <h4>User</h4>
+    <hr />
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+        var approvalrequest  = @Html.Raw(Json.Encode(Model.User.ApprovalRequestPending));
+        
+        $("body").click(function () { alert("buttom clicked") });
+        alert(approvalrequest);
+    </script>
+    @if (Model.User.ApprovalRequestPending > 0)
+    {
+
+        <p>Frist complete the eariler Approval requuest</p>
+    }
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.EmailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.EmailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Balance)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Balance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.ApprovalRequestPending)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.ApprovalRequestPending)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.ApprovalRequestApplied)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.ApprovalRequestApplied)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.User.ApprovalRequestApplied)
+        </dd>
+    </dl>
+</div>
+<table class="approval-table" align="center">
+    <tr><th>Amount</th><th>Purpose</th><th>Action</th></tr>
+@foreach (var creditRequest in Model.CreditRequestList)
+{
+    <tr><td>
+@creditRequest.Amount</td>
+   <td>@creditRequest.Purpose</td>
+   <td>@Html.ActionLink("Click to Approve", "RequestApproveAction",new { creditRequest.CreditRequestId })</td>
+       </tr>
+}
+    </table>
+<p>
+    @Html.ActionLink("Amount Approval Form", "AmountApprovalAction", Model.User)
+</p>
+<style>
+
+    .approval-table {
+        border: 1px solid red;
+    }
+    td, th, tr {
+        border: 1px solid black;
+        padding: 10px 50px 10px 50px;
+    }
+    
+    
+
+</style>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CreditApproverDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ApprovalRequest">
+    <Key>
+      <PropertyRef Name="ApprovalRequestId" />
+    </Key>
+    <Property Name="ApprovalRequestId" Type="int" Nullable="false" />
+    <Property Name="CreditRequestId" Type="int" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="CreditRequest">
+    <Key>
+      <PropertyRef Name="CreditRequestId" />
+    </Key>
+    <Property Name="CreditRequestId" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="Purpose" Type="varchar(max)" />
+    <Property Name="ApplicantId" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="255" />
+    <Property Name="EmailId" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="255" />
+    <Property Name="Balance" Type="varchar" MaxLength="255" />
+    <Property Name="ApprovalRequestPending" Type="int" />
+    <Property Name="ApprovalRequestApplied" Type="int" />
+  </EntityType>
+  <EntityContainer Name="CreditApproverDbModelStoreContainer">
+    <EntitySet Name="ApprovalRequest" EntityType="Self.ApprovalRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CreditRequest" EntityType="Self.CreditRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

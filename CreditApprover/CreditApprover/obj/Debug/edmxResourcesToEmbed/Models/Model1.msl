@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CreditApproverDbModelStoreContainer" CdmEntityContainer="CreditApproverDbEntities1">
+    <EntitySetMapping Name="ApprovalRequests">
+      <EntityTypeMapping TypeName="CreditApproverDbModel.ApprovalRequest">
+        <MappingFragment StoreEntitySet="ApprovalRequest">
+          <ScalarProperty Name="ApprovalRequestId" ColumnName="ApprovalRequestId" />
+          <ScalarProperty Name="CreditRequestId" ColumnName="CreditRequestId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CreditRequests">
+      <EntityTypeMapping TypeName="CreditApproverDbModel.CreditRequest">
+        <MappingFragment StoreEntitySet="CreditRequest">
+          <ScalarProperty Name="CreditRequestId" ColumnName="CreditRequestId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CreditApproverDbModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="ApprovalRequestPending" ColumnName="ApprovalRequestPending" />
+          <ScalarProperty Name="ApprovalRequestApplied" ColumnName="ApprovalRequestApplied" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
